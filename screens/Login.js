@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from "react-native";
+import { COLORS, SIZES } from "../constants/theme";
 
-//import {COLORS, SIZES} from '../constants/floatingButton';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ const Login = () => {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="Email"
           placeholderTextColor="#003f5c"
           keyboardType="email-address"
           activeUnderlineColor="green"
@@ -35,7 +35,7 @@ const Login = () => {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Password"
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
@@ -67,9 +67,6 @@ const styles = StyleSheet.create({
     alignContent: "flex-start",
     justifyContent: "flex-start",
     marginBottom: 12,
-  },
-  image: {
-    marginBottom: 40,
   },
   inputView: {
     backgroundColor: "#ffff",
