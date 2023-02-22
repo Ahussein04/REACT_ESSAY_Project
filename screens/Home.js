@@ -1,6 +1,8 @@
-//home screen of the essay app
-import {View, SafeArea, FlatList, Text} from 'react-native';
-import { COLORS, SIZES, FONTS, SHADOWS } from '../constants/theme';
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from "react-native";
+import { COLORS, SIZES } from "../constants/theme";
+import ActionButton from "../components/ActionButton";
 
 
 const Home = () => {
@@ -8,17 +10,20 @@ const Home = () => {
     <View style={styles.container}>
       <Text>Home</Text>
       <StatusBar style="auto" />
+
+      <ActionButton/>
     </View>
+
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fafafa',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  }
 
-export default Home
+});
+
+export default Home;
