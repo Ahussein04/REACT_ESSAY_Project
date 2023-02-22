@@ -1,12 +1,24 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from "react-native";
+import {StyleSheet, Image, TouchableOpacity} from "react-native";
+
 import { COLORS, SIZES } from "../constants/theme";
 import plus from '../assets/plus.png';
 
+import { useNavigation } from "@react-navigation/native";
+
+
 const ActionButton = () => {
+
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.addButton}>
+    <TouchableOpacity 
+      style={styles.addButton}
+      onPress ={() => {
+        navigation.navigate("Essay");
+      }}
+    >
         <Image source={plus} style = {styles.icon} />
         <StatusBar style="auto" />
     </TouchableOpacity>
@@ -19,7 +31,7 @@ const styles = StyleSheet.create({
     width: 77,
     height: 77,
     borderRadius: 100,
-    backgroundColor: '#808080',
+    backgroundColor: COLORS.gray,
     display: 'flex',
     bottom: 0,
     right: 0,
