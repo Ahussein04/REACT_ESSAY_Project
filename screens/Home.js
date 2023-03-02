@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from "react-native";
 import { COLORS, SIZES } from "../constants/theme";
 import ActionButton from "../components/ActionButton";
+import TestScreen from "../components/TestScreen";
 
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>ome</Text>
       <StatusBar style="auto" />
 
-      <ActionButton/>
+      <TestScreen/>
     </View>
 
   )
