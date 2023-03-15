@@ -1,6 +1,6 @@
 //dummy data for testing the app
 
-const essayData = [
+export const EssayData = [
     {
         id: "essay-01",
         name: "first essay",

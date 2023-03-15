@@ -1,14 +1,31 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const EssayCard = ({data}) => {
-  const navigation = useNavigation();
-
+export default function EssayCard (props) {
   return (
-    <View>
-      <Text>EssayCard</Text>
+    <View style={styles.card}>
+      <View style={styles.cardContent}>
+        { props.children }
+      </View>
     </View>
-  )
+  );
 }
 
-export default EssayCard
+
+const styles = StyleSheet.create({
+  card: {
+    borderRadius: 6,
+    elevation: 3,
+    backgroundColor: '#fff',
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 4,
+    marginVertical: 6,
+  },
+  cardContent: {
+    marginHorizontal: 18,
+    marginVertical: 20,
+  }
+});
