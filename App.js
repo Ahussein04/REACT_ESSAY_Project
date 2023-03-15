@@ -22,19 +22,19 @@ const Stack = createStackNavigator();
 const App = () => {
   
   return (
-    <Navigator/>
-    // <NavigationContainer theme={theme}>
-    //   <Stack.Navigator
-    //     screenOptions={{
-    //       headerShown: false,
-    //     }}
-    //     initialRouteName="Home"
-    //   >
-    //     <Stack.Screen name="Home" component={Home} />
-    //     <Stack.Screen name="Essay" component={Essay} />
-    //     <Stack.Screen name="Login" component={Login} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+    
+    <NavigationContainer theme={theme}>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="Home"
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Essay" component={Essay} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
