@@ -4,15 +4,19 @@ import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from
 import { COLORS, SIZES } from "../constants/theme";
 import ActionButton from "../components/ActionButton";
 import TestScreen from "../components/TestScreen";
+import { Header } from 'react-native-elements';
 
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Text>ome</Text>
-      <StatusBar style="auto" />
 
-      <TestScreen/>
+    <View>
+
+      <View style = {styles.header}>
+       <StatusBar style="auto" />
+        <Text style = {styles.headText}>Essay Home</Text>
+      </View>
+
     </View>
 
   )
@@ -23,6 +27,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  header: {
+    alignItems: "center",
+    justifyContent: "center",
+
+    backgroundColor: COLORS.red,
   }
 
 });

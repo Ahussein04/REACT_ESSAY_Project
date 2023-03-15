@@ -1,13 +1,14 @@
+import { View, Text } from 'react-native'
+import React from 'react'
 
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+const EssayCard = ({data}) => {
+  const navigation = useNavigation();
 
-export default class essayCard extends Component {
-  render() {
-    return (
-      <View>
-        <Text>essayCard</Text>
-      </View>
-    )
-  }
+  return (
+    <View>
+      <Text>EssayCard</Text>
+    </View>
+  )
 }
+
+export default EssayCard
