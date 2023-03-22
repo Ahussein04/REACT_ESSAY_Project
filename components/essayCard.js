@@ -1,16 +1,28 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { COLORS } from '../constants/theme';
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const EssayCard =  ({data}) => {
+
+
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate('Essay', { data });
+  };
+
+
   return (
-    <View style={styles.card}>
-    <Image source={data.pic} style={styles.thumbnail} />
-    <View style={styles.content}>
-      <Text style={styles.title}>{data.name}</Text>
-      <Text style={styles.date}>{data.lastEdited}</Text>
+    <TouchableOpacity onPress={handlePress}>
+      <View style={styles.card}>
+      <Image source={data.pic} style={styles.thumbnail} />
+      <View style={styles.content}>
+        <Text style={styles.title}>{data.name}</Text>
+        <Text style={styles.date}>{data.lastEdited}</Text>
+      </View>
     </View>
-  </View>
+  </TouchableOpacity>
   );
 }
 
