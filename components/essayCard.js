@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 8,
     marginRight: 16,
-    backgroundColor: COLORS.red,
   },
   content: {},
   title: {
