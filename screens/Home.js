@@ -5,7 +5,7 @@ import { COLORS, SIZES } from "../constants/theme";
 import {EssayData} from "../constants/dummyData"
 import ActionButton from "../components/ActionButton";
 import EssayCard from "../components/EssayCard";
-
+import Header from "../components/header";
 
 const DATA = [
   {
@@ -33,16 +33,14 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* <Header => ({ "Home",navigation.navigate(Home)  )?> */}
+
       {/* <StatusBar style="auto" /> */}
+
        <FlatList
-        // numColumns={2}
+       // numColumns={2}
         data={EssayData}
-        renderItem={({item}) => 
-          <TouchableOpacity onPress={() => navigation.navigate('Login', item)}>
-            <Text >{ item.name }</Text>
-            </TouchableOpacity>
-      
-        }
+        renderItem={({item}) => <EssayCard data = {item}/> }
         keyExtractor={item => item.id}
       /> 
     </SafeAreaView>

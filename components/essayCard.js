@@ -1,31 +1,52 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { COLORS } from '../constants/theme';
 import React from 'react'
 
-export default function EssayCard (props) {
+const EssayCard =  ({data}) => {
   return (
     <View style={styles.card}>
-      <View style={styles.cardContent}>
-        { props.children }
-      </View>
+    <Image source={data.pic} style={styles.thumbnail} />
+    <View style={styles.content}>
+      <Text style={styles.title}>{data.name}</Text>
+      <Text style={styles.date}>{data.lastEdited}</Text>
     </View>
+  </View>
   );
 }
 
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 6,
-    elevation: 3,
     backgroundColor: '#fff',
-    shadowOffset: { width: 1, height: 1 },
-    shadowColor: '#333',
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
-    marginHorizontal: 4,
-    marginVertical: 6,
+    borderRadius: 8,
+    padding: 16,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  cardContent: {
-    marginHorizontal: 18,
-    marginVertical: 20,
-  }
+  thumbnail: {
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+    marginRight: 16,
+    backgroundColor: COLORS.red,
+  },
+  content: {},
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  date: {
+    fontSize: 12,
+    color: '#aaa',
+  },
 });
+
+export default EssayCard;

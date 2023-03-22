@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from
 import { COLORS, SIZES } from "../constants/theme";
 
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -46,7 +46,7 @@ const Login = () => {
         <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </TouchableOpacity> 
       
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.loginText}>LOGIN</Text> 
       </TouchableOpacity> 
 
