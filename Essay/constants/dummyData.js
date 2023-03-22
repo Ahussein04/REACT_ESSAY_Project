@@ -35,4 +35,16 @@ export const EssayData = [
         pic: thumb, 
         essay: "fourth essay",
     },
+    {
+        id: "essay-05",
+        name: "Exit west report",
+        lastEdited: "3/22/23",
+        wordCount: "120",
+        pic: thumb,
+        essay: "Exit West, by Hamid, is a story about migrants", 
+
+
+
+
+    }
 ]
