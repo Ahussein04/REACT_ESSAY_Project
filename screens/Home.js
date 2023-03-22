@@ -38,7 +38,7 @@ const Home = ({ navigation }) => {
       {/* <StatusBar style="auto" /> */}
 
        <FlatList
-       // numColumns={2}
+        //numColumns={2}
         data={EssayData}
         renderItem={({item}) => <EssayCard data = {item}/> }
         keyExtractor={item => item.id}
