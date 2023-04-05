@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { COLORS } from '../constants/theme';
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+import thumb from "../assets/thumb1.png";
 
 const EssayCard =  ({data}) => {
 
@@ -16,9 +17,9 @@ const EssayCard =  ({data}) => {
   return (
     <TouchableOpacity onPress={handlePress}>
       <View style={styles.card}>
-      <Image source={data.pic} style={styles.thumbnail} />
+      <Image source={thumb} style={styles.thumbnail} />
       <View style={styles.content}>
-        <Text style={styles.title}>{data.name}</Text>
+        <Text style={styles.title}>{data.title}</Text>
         <Text style={styles.date}>{data.lastEdited}</Text>
       </View>
     </View>

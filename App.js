@@ -1,7 +1,7 @@
-
 import Home from './screens/Home';
 import Login from './screens/Login';
 import Essay from './screens/Essay';
+import AddEssay from './screens/AddEssay';
 import TestScreen from './components/TestScreen';
 // import Navigator from './components/DrawerNavigator';
 
@@ -28,8 +28,9 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Home"
+        initialRouteName="Login"
       >
+        <Stack.Screen name="Add" component={AddEssay}/>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Essay" component={Essay} />
         <Stack.Screen name="Login" component={Login} />
