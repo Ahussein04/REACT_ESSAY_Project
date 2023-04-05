@@ -9,8 +9,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from 'firebase/auth';
 
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyDKPd_A_n95kHrh4pk7I9iITG-K9eFqg54",
     authDomain: "fir-auth-react-960c1.firebaseapp.com",
@@ -22,9 +20,6 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
-
-
-
 
 
 const Login = ({ navigation }) => {
