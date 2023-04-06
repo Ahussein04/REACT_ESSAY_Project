@@ -1,12 +1,11 @@
-
 import Home from './screens/Home';
 import Login from './screens/Login';
 import Essay from './screens/Essay';
 import TestScreen from './components/TestScreen';
-// import Navigator from './components/DrawerNavigator';
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+
 
 
 const theme = {
@@ -28,7 +27,7 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Home"
+        initialRouteName="Login"
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Essay" component={Essay} />

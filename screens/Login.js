@@ -3,15 +3,62 @@ import React, { useState } from "react";
 import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from "react-native";
 import { COLORS, SIZES } from "../constants/theme";
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-community/async-storage';
+import { showMessage, hideMessage } from 'react-native-flash-message';
+import { initializeApp } from "../node_modules/firebase/app";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from 'firebase/auth';
+
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDKPd_A_n95kHrh4pk7I9iITG-K9eFqg54",
+    authDomain: "fir-auth-react-960c1.firebaseapp.com",
+    projectId: "fir-auth-react-960c1",
+    storageBucket: "fir-auth-react-960c1.appspot.com",
+    messagingSenderId: "614950462876",
+    appId: "1:614950462876:web:2318e9665d3abf1be3d459",
+    measurementId: "G-SJZVBGTXNX"
+};
+
+initializeApp(firebaseConfig);
+
+
+
+
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Perform authentication or API call here
-    // If successful, navigate to the next screen, otherwise show error message
+  const handleLogin = async () => {
+
+    try {
+      // check if user exists in Firebase database
+ 
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+
+
+    
+      const uid = userCredential.user.uid;
+  
+      // log in user and navigate to home screen
+      navigation.navigate('Home');
+    } catch (error) {
+      console.log(error);
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'auto',
+      });
+    }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -46,9 +93,10 @@ const Login = ({ navigation }) => {
         <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </TouchableOpacity> 
       
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.loginText}>LOGIN</Text> 
-      </TouchableOpacity> 
+      <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
+          <Text style={styles.loginText}>LOGIN</Text> 
+      </TouchableOpacity>
+
 
 
     </View> 

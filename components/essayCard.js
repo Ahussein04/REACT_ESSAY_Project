@@ -18,7 +18,7 @@ const EssayCard =  ({data}) => {
       <View style={styles.card}>
       <Image source={data.pic} style={styles.thumbnail} />
       <View style={styles.content}>
-        <Text style={styles.title}>{data.name}</Text>
+        <Text style={styles.title}>{data.title}</Text>
         <Text style={styles.date}>{data.lastEdited}</Text>
       </View>
     </View>
