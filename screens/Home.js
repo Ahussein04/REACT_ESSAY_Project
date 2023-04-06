@@ -1,16 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useEffect } from "react";
 import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, SafeAreaView, FlatList} from "react-native";
 import { COLORS, SIZES } from "../constants/theme";
 import ActionButton from "../components/ActionButton";
 import EssayCard from "../components/EssayCard";
-import {firebase} from './config'
+import {firebase} from '../config'
+
 
 const Home = ({ navigation }) => {
 
   const [essays, setEssays] = useState([]);
-  const [newEssayTitle, setNewEssayTitle] = useState("");
-  const [newEssayContent, setNewEssayContent] = useState("");
 
   useEffect(() => {
     const db = firebase.firestore();
@@ -25,27 +24,13 @@ const Home = ({ navigation }) => {
     });
   }, []);
 
-  const addNewEssay = () => {
-    if (newEssayTitle !== "" && newEssayContent !== "") {
-      const db = firebase.firestore();
-      db.collection("essays").add({
-        title: newEssayTitle,
-        essay: newEssayContent,
-        edited: ('' + new Date() + title),
-      }).then(() => {
-        console.log("New essay added to Firestore");
-        setNewEssayTitle("");
-        setNewEssayContent("");
-      }).catch((error) => {
-        console.error("Error adding new essay: ", error);
-      });
-    }
-  };
-
   return (
     <SafeAreaView style={styles.container}>
+
       {/* <StatusBar style="auto" /> */}
-      <FlatList
+
+       <FlatList
+        //numColumns={2}
         data={essays}
         renderItem={({item}) => <EssayCard data={item} />}
         keyExtractor={item => item.id}
