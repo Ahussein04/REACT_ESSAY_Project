@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import {StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from "react-native";
 import { COLORS, SIZES } from "../constants/theme";
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-import AsyncStorage from '@react-native-community/async-storage';
-import { showMessage, hideMessage } from 'react-native-flash-message';
+import { showMessage } from 'react-native-flash-message';
 import { initializeApp } from "../node_modules/firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from 'firebase/auth';

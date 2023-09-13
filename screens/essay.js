@@ -15,15 +15,12 @@ const Essay = ({ route }) => {
   const handleEssayChange = async (text) => {
     setEssay(text);
     console.log(data.id);
-    const userId = firebase.auth().currentUser.uid;
+    //const userId = firebase.auth().currentUser.uid;
     const essayRef = firebase.firestore().collection('essays').doc(data.id);
     try {
       await essayRef.update({
         essay: text
       });
-      console.log(data.essay);
-      console.log(text);
-      data.essay = text;
       console.log("Essay updated successfully!");
     } catch (error) {
       console.error("Error updating essay: ", error);
@@ -33,19 +30,19 @@ const Essay = ({ route }) => {
 
   
   const handleExit = () => {
-    console.log("hghgfhfgh");
-    navigation.navigate('Home');
+    navigation.navigate('Home', { updatedEssay: essay });
   };
+  
   
 
   return (
     <View style={{ flex: 1, padding: 10 }}>
       <View style={styles.container}>
-        <Text style={styles.header}>{data.name}</Text>
+        <Text style={styles.header}>{data.title}</Text>
         <TextInput
           style={styles.textInput}
           multiline={true}
-          placeholder="Write your essay here..."
+          placeholder="Add questions here..."
           value={essay}
           onChangeText={handleEssayChange}
         />
@@ -57,6 +54,8 @@ const Essay = ({ route }) => {
         </TouchableOpacity>
         {/* <Button title="Save & Exit" style = {styles.save} onPress={handleExit} /> */}
       </View>
+
+
 
     </View>
   );
